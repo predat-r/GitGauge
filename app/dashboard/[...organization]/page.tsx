@@ -1,3 +1,4 @@
+"use client";
 import { authOptions } from "@/lib/authoptions";
 import { getServerSession } from "next-auth";
 import React from "react";
@@ -10,33 +11,25 @@ import {
 } from "lucide-react";
 import RepoCardWrapper from "@/components/repo-card-wrapper";
 import { Repo } from "@/lib/definitions";
-
+import { useParams } from "next/navigation";
 export const Dashboard = async () => {
+  const { organization } = useParams();
   const session = await getServerSession(authOptions);
   let repos: Repo[] | null = [];
   let yum: [] = [];
-  if (session && session.accessToken) {
-    const orgs = await fetch(
-      `https://api.github.com/orgs/GitGauge/memberships/predat-r`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${session.accessToken}`,
-          Accept: "application/vnd.github.v3+json",
-        },
-      }
-    );
-    yum = await orgs.json();
-    console.log(yum);
-  }
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Organization Repository Dashboard
+          <div className="flex  flex-col md:flex-row items-center justify-center w-full text-center gap-x-5">
+          <h1 className="text-4xl font-bold text-blue-600 mb-4">
+            {organization}
           </h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Dashboard
+          </h1>
+          </div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Monitor developer activity, track repository health, and analyze
             team performance across all projects.

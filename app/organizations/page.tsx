@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 import { ArrowRight, Users } from "lucide-react";
+import Image from "next/image";
 
 interface Organization {
   login: string;
@@ -29,6 +30,7 @@ const SelectOrgPage = () => {
     };
     fetchOrgs();
   }, []);
+  console.log(orgs);
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
