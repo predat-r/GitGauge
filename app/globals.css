@@ -14,3 +14,9 @@
   }
 }
 
+html, body {
+  background-color: var(--background); /* Your dark background variable */
+  margin: 0; /* Remove default margin */
+  height: 100%; /* Ensure body takes full height */
+}
+

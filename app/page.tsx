@@ -21,11 +21,11 @@ const LandingPage = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-8 ">
-              <a href="#features">Features</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#docs">Documentation</a>
-              <button className="px-4 py-2">Sign In</button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              <a className=" hover:text-blue-700 dark:hover:text-gray-700" href="#features">Features</a>
+              <a  className=" hover:text-blue-700 dark:hover:text-gray-700" href="#pricing">Pricing</a>
+              <a  className=" hover:text-blue-700 dark:hover:text-gray-700" href="#docs">Documentation</a>
+              <button  className=" hover:text-blue-700 dark:hover:text-gray-700 px-4 py-2">Sign In</button>
+              <button className=" px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                 Get Started
               </button>
             </div>
@@ -127,12 +127,12 @@ const LandingPage = () => {
       {/* Pricing Section */}
       <section className="py-20 px-6" id="pricing">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12">
             Simple, Transparent Pricing
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="border border-gray-200 rounded-xl p-8">
+            <div className="border border-gray-200 dark:border-gray-900 rounded-xl p-8">
               <div className="mb-6">
                 <h3 className="text-xl font-semibold mb-2">Starter</h3>
                 <div className="text-3xl font-bold">
@@ -154,7 +154,7 @@ const LandingPage = () => {
                   <span>30-day history</span>
                 </li>
               </ul>
-              <button className="w-full py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50">
+              <button className="w-full py-2 border border-blue-600 text-blue-600 rounded-lg mt-11  dark:hover:bg-gray-900 hover:bg-blue-50">
                 Start Trial
               </button>
             </div>
@@ -190,12 +190,12 @@ const LandingPage = () => {
                   <span>Team reports</span>
                 </li>
               </ul>
-              <button className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              <button className="w-full py-2 bg-blue-600 text-white rounded-lg  hover:bg-blue-700">
                 Start Trial
               </button>
             </div>
 
-            <div className="border border-gray-200 rounded-xl p-8">
+            <div className="border border-gray-200 dark:border-gray-900 rounded-xl p-8">
               <div className="mb-6">
                 <h3 className="text-xl font-semibold mb-2">Enterprise</h3>
                 <div className="text-3xl font-bold">Custom</div>
@@ -218,7 +218,7 @@ const LandingPage = () => {
                   <span>Priority support</span>
                 </li>
               </ul>
-              <button className="w-full py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50">
+              <button className="w-full py-2 border border-blue-600 text-blue-600 rounded-lg  dark:hover:bg-gray-900 hover:bg-blue-50">
                 Contact Sales
               </button>
             </div>
@@ -236,14 +236,14 @@ const LandingPage = () => {
             Join thousands of teams who use GitGauge to improve their
             development workflow.
           </p>
-          <button className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50">
+          <button className="px-8 py-3 bg-white text-blue-700 dark:bg-white rounded-lg hover:bg-blue-50">
             Start Free Trial
           </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50 py-12 px-6">
+      <footer className=" py-12 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
