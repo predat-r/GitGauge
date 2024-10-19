@@ -25,19 +25,19 @@ export const Dashboard = async () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-zinc-800">
             <p className="text-sm text-gray-600 dark:text-gray-400">Total Repos</p>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">5</p>
+            <p className="text-2xl font-bold text-blue-700">5</p>
           </div>
           <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-zinc-800">
             <p className="text-sm text-gray-600 dark:text-gray-400">Total Stars</p>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">6.2k</p>
+            <p className="text-2xl font-bold text-blue-700">6.2k</p>
           </div>
           <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-zinc-800">
             <p className="text-sm text-gray-600 dark:text-gray-400">Total Forks</p>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">615</p>
+            <p className="text-2xl font-bold text-blue-700">615</p>
           </div>
           <div className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-zinc-800">
             <p className="text-sm text-gray-600 dark:text-gray-400">Contributors</p>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">225</p>
+            <p className="text-2xl font-bold text-blue-700">225</p>
           </div>
         </div>
 
