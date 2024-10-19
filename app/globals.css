@@ -2,21 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #090909;
-    --foreground: #ededed;
-  }
-}
-
 html, body {
   background-color: var(--background); /* Your dark background variable */
   margin: 0; /* Remove default margin */
   height: 100%; /* Ensure body takes full height */
 }
+:root {
+  --background: #ffffff; /* Light background */
+  --foreground: #000000; /* Light foreground */
+}
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000; /* Dark background */
+    --foreground: #ffffff; /* Dark foreground */
+  }
+}
