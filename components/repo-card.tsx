@@ -1,7 +1,7 @@
 import React from 'react';
 import { GitBranch, GitFork, Star, Users, Code, Circle } from 'lucide-react';
 
-type Languages = 'JavaScript' | 'Python' | 'Java' | 'TypeScript' | 'Ruby' | 'Go';
+type Languages = 'JavaScript' | 'Python' | 'Java' | 'TypeScript' | 'Ruby' | 'Go'|string;
 
 interface LanguageColors {
   [key: string]: string;
@@ -9,7 +9,7 @@ interface LanguageColors {
 
 interface RepoCardProps {
   name?: string;
-  description?: string;
+  description: string|null;
   language?: Languages;
   stars?: number;
   forks?: number;
@@ -38,14 +38,14 @@ const formatNumber = (num: number): string | number => {
 };
 
 const RepoCard: React.FC<RepoCardProps> = ({
-  name = "awesome-project",
-  description = "A really cool project that does amazing things",
-  language = "JavaScript",
-  stars = 1234,
-  forks = 123,
-  contributors = 45,
+  name,
+  description,
+  language,
+  stars,
+  forks,
+  contributors,
   codeSize = "2.5MB",
-  branches = 3
+  branches
 }) => {
   return (
     <div className="w-full h-56 max-w-md border text-[#818080] border-gray-200 dark:bg-[#3333] dark:border-[#37373733] rounded-lg p-6 hover:shadow-lg transition-shadow duration-200">
@@ -72,13 +72,13 @@ const RepoCard: React.FC<RepoCardProps> = ({
           {/* Stars */}
           <div className="flex items-center space-x-1">
             <Star size={16} className= "dark:text-gray-500 text-gray-600" />
-            <span className="text-sm dark:text-white text-gray-600">{formatNumber(stars)}</span>
+            <span className="text-sm dark:text-white text-gray-600">{stars?formatNumber(stars):0}</span>
           </div>
 
           {/* Forks */}
           <div className="flex items-center space-x-1">
             <GitFork size={16} className= "dark:text-gray-500 text-gray-600" />
-            <span className="text-sm dark:text-white text-gray-600">{formatNumber(forks)}</span>
+            <span className="text-sm dark:text-white text-gray-600">{forks?formatNumber(forks):0}</span>
           </div>
         </div>
 
@@ -87,7 +87,7 @@ const RepoCard: React.FC<RepoCardProps> = ({
           {/* Contributors */}
           <div className="flex items-center space-x-1">
             <Users size={16} className='text-gray-600'/>
-            <span>{formatNumber(contributors)}</span>
+            <span>{contributors?formatNumber(contributors):0}</span>
           </div>
 
           {/* Code Size */}
