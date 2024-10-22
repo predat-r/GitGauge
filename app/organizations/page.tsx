@@ -1,39 +1,13 @@
-'use client';
-import React, { useEffect, useState } from "react";
-import { getSession } from "next-auth/react";
+
 import { ArrowRight, Users } from "lucide-react";
-import Image from "next/image";
+import { fetchOrgsOfUser } from "@/lib/actions";
+import OrganizationPageNav from "@/components/orgpage-nav";
 
-interface Organization {
-  login: string;
-  id: number;
-  avatar_url: string;
-  description: string | null;
-}
-
-const SelectOrgPage = () => {
-  const [orgs, setOrgs] = useState<Organization[]>([]);
-
-  useEffect(() => {
-    const fetchOrgs = async () => {
-      const session = await getSession();
-      if (session?.accessToken) {
-        const response = await fetch("https://api.github.com/user/orgs", {
-          headers: {
-            Authorization: `Bearer ${session.accessToken}`,
-            Accept: "application/vnd.github.v3+json",
-          },
-        });
-        const data = await response.json();
-        setOrgs(data);
-      }
-    };
-    fetchOrgs();
-  }, []);
-  console.log(orgs);
-
+const SelectOrgPage = async () => {
+  const orgs = await fetchOrgsOfUser();
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <OrganizationPageNav></OrganizationPageNav>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="text-center mb-16">
           <h1 className="text-4xl text-blue-800 font-extrabold tracking-tight sm:text-5xl md:text-6xl">
@@ -44,26 +18,32 @@ const SelectOrgPage = () => {
           </p>
         </div>
 
-        {orgs.length === 0 ? (
+        {orgs && orgs.length === 0 ? (
           <div className="text-center">
             <Users className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-xl font-medium text-gray-900">No organizations found</h3>
-            <p className="mt-1 text-gray-500">You don't belong to any organizations.</p>
+            <h3 className="mt-2 text-xl font-medium text-gray-900">
+              No organizations found
+            </h3>
+            <p className="mt-1 text-gray-500">
+              You don't belong to any organizations.
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {orgs.map((org) => (
+            {orgs&&orgs.map((org) => (
               <div
                 key={org.id}
                 className="dark:bg-[#3333] border border-gray-100 dark:border-[#3333] overflow-hidden shadow-xl rounded-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-2xl"
               >
                 <div className="p-6">
-                  <img
+                <img
                     src={org.avatar_url}
                     alt={org.login}
                     className="w-24 h-24 mx-auto rounded-full shadow-lg"
                   />
-                  <h3 className="mt-4 text-xl font-semibold text-center">{org.login}</h3>
+                  <h3 className="mt-4 text-xl font-semibold text-center">
+                    {org.login}
+                  </h3>
                   <p className="mt-2 text-gray-600 text-sm text-center line-clamp-2">
                     {org.description || "No description available"}
                   </p>

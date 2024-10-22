@@ -7,9 +7,7 @@ import {
 } from "lucide-react";
 import Footer from "../components/footer";
 import Pricing from "../components/pricing";
-import Nav from "../components/nav";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authoptions";
+import Nav from "../components/landing-page-nav";
 
 const LandingPage = async () => {
   return (
